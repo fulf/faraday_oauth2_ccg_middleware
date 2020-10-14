@@ -2,8 +2,7 @@ PATH
   remote: .
   specs:
     faraday_oauth2_ccg_middleware (0.1.0)
-      faraday (~> 1.0)
-      faraday_middleware
+      faraday (>= 0.8)
 
 GEM
   remote: https://rubygems.org/
@@ -11,8 +10,6 @@ GEM
     diff-lcs (1.4.4)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (1.0.0)
-      faraday (~> 1.0)
     multipart-post (2.1.1)
     rake (10.5.0)
     rspec (3.9.0)
