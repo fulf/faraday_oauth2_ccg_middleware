@@ -88,11 +88,11 @@ module FaradayOauth2CcgMiddleware
     end
 
     def token_object
-      JSON.parse(oauth_response.body)
+      @token_object ||= JSON.parse(oauth_response.body)
     end
 
     def oauth_response
-      auth_conn.post(
+      @oauth_response ||= auth_conn.post(
         @options.token_url,
         grant_type:    CLIENT_CREDENTIALS_GRANT,
         client_id:     @options.client_id,
