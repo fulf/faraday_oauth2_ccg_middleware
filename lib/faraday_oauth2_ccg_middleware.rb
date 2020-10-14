@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'faraday_oauth2_ccg_middleware/version'
+require 'faraday'
+require 'json'
 
 module FaradayOauth2CcgMiddleware
-  require 'faraday'
 
   class Error < StandardError; end
 
