@@ -23,7 +23,6 @@ module FaradayOauth2CcgMiddleware
   #   conn.adapter(:net_http) # NB: Last middleware must be the adapter
   # end
   class ClientCredentialsGrant < Faraday::Middleware
-    # Options class used in Request::Instrumentation class.
     class Options < Faraday::Options.new(:oauth_host, :token_url,
                                          :client_id, :client_secret,
                                          :cache_store)
@@ -53,9 +52,9 @@ module FaradayOauth2CcgMiddleware
       end
     end
 
-    AUTHORIZATION_HEADER = 'Authorization'.freeze
-    BEARER_AUTHORIZATION = 'Bearer'.freeze
-    CLIENT_CREDENTIALS_GRANT = 'client_credentials'.freeze
+    AUTHORIZATION_HEADER = 'Authorization'
+    BEARER_AUTHORIZATION = 'Bearer'
+    CLIENT_CREDENTIALS_GRANT = 'client_credentials'
 
     # @param app [#call]
     # @param options [Hash]
