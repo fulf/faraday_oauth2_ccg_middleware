@@ -78,21 +78,19 @@ module FaradayOauth2CcgMiddleware
     private
 
     def token
+      token = JSON.parse(oauth_response.body)
+
       if @options.cache_store
-        return @options.cache_store.fetch(cache_key, expires_in: token_object['expires_in']) do
-          token_object['access_token']
+        return @options.cache_store.fetch(cache_key, expires_in: token['expires_in']) do
+          token['access_token']
         end
       end
 
-      token_object['access_token']
-    end
-
-    def token_object
-      @token_object ||= JSON.parse(oauth_response.body)
+      token['access_token']
     end
 
     def oauth_response
-      @oauth_response ||= auth_conn.post(
+      @oauth_response = auth_conn.post(
         @options.token_url,
         grant_type:    CLIENT_CREDENTIALS_GRANT,
         client_id:     @options.client_id,

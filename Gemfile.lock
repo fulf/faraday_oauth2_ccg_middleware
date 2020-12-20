@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    faraday_oauth2_ccg_middleware (0.1.0)
+    faraday_oauth2_ccg_middleware (0.1.1)
       faraday (>= 0.8)
 
 GEM
